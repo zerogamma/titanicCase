@@ -16,21 +16,23 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Code To train and predict a Lineal Regression Model.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+the code use 'ml-logistic-regression' as a library to train and predict.
+the 'ml-logistic-regression' is not the best library but for simplicity was used. (no precise at all)
+the 'ml-logistic-regression' have a limitation that only work with numerical values so if there is a string value, then you need to convert and normalize.
 
-## Learn More
+have 2 API endpoint train and predict.
 
-To learn more about Next.js, take a look at the following resources:
+### api/train (POST)
+optional body structure: [removeAttributefromDataSet].
+example:
+["Pclass","Sex","Embarked","Cabin","PassengerId","Name","Ticket"]
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### api/predict (POST)
+optional body structure: [[dataUsedToPredict],[dataUsedToPredict]].
+example:
+[[ 25, 0, 0, 7.65 ],[ 24, 1, 0, 16.1 ]]
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### both end point, if there are no body will use the csv file use for this case.
+### NOTE: using custom example (using the body) will not work.
