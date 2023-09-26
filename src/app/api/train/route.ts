@@ -3,6 +3,8 @@ import _ from "lodash";
 import { Matrix } from "ml-matrix";
 import LogisticRegression from "ml-logistic-regression";
 import { processFile, saveModel, scoreResult } from "../utils/prepareFile";
+import { getToken } from "next-auth/jwt";
+import jwt from "jsonwebtoken";
 
 function GetResultValidation(toRemoveValidationData: any[]) {
   let Y_data: any[] = [];
@@ -32,7 +34,7 @@ function SplitAndSuffle(training: any) {
   };
 }
 
-export async function POST(req: Request) {
+export async function POST(req: any) {
   const res = await req.text();
   try {
     const removeAttribute = res
@@ -62,6 +64,6 @@ export async function POST(req: Request) {
 
     return NextResponse.json(score);
   } catch (e) {
-    return NextResponse.json('Something went wrong');
+    return NextResponse.json("Something went wrong");
   }
 }
