@@ -31,12 +31,12 @@ body {
   position: fixed;
 }
 
-video {
-  clear: both;
-  display: block;
-  margin: 10px;
-  background: #000000;
-  width: 640px;
-  height: 480px;
-  border-radius: 1rem;
+@layer components {
+  .btn-base {
+    @apply rounded-lg bg-zinc-400 pt-1 pb-1 pr-2 pl-2 text-zinc-100  disabled:bg-slate-300 disabled:text-slate-200;
+  }
+  .answer {
+    @apply text-zinc-400 italic
+  }
 }
+

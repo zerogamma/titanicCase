@@ -1,1 +1,0 @@
-{"name":"LogisticRegression","numSteps":1000,"learningRate":0.005,"numberClasses":2,"classifiers":[{"numSteps":1000,"learningRate":0.005,"weights":[[-48.21374406216886,-236.07757557990007,-49.63966633664403,-8.855325698966144]]},{"numSteps":1000,"learningRate":0.005,"weights":[[2.764090121089893,240.506790449617,50.95064546580799,-35.5895494497921]]}]}

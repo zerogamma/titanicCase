@@ -59,7 +59,7 @@ export const processFile = async (
   });
 
   await finished(parsed);
-
+  console.log(header);
   return fillNull(
     Object.keys(header),
     data,
@@ -68,7 +68,6 @@ export const processFile = async (
     type
   );
 };
-
 
 // function to fill Null data. HardCode for Age and Fare.
 function fillNull(
@@ -94,15 +93,15 @@ export const saveModel = (JSONModel: string) => {
 
 // Deserialize the model.
 export const getModel = async () => {
-    const readFile = await fs.readFile('modelTitanic.json', 'utf8')
-    return JSON.parse(readFile)
+  const readFile = await fs.readFile("modelTitanic.json", "utf8");
+  return JSON.parse(readFile);
 };
 
 // Calculation to get the efficiency of the model in the prediction.
 export const scoreResult = (base: number[], predicted: number[]) => {
-    const matchedCount = base.reduce((total, result, index) => {
-      if (result === predicted[index]) return total + 1;
-      return total;
-    }, 0);
-    return ((matchedCount * 100 ) / base.length) / 100
-  }
+  const matchedCount = base.reduce((total, result, index) => {
+    if (result === predicted[index]) return total + 1;
+    return total;
+  }, 0);
+  return (matchedCount * 100) / base.length / 100;
+};

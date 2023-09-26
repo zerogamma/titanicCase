@@ -4,7 +4,7 @@ export const navItems = [
     name: 'train',
   },
   {
-    path: '/predict',
+    path: '/pages/predict',
     name: 'predict'
   }
 ];

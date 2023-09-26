@@ -18,7 +18,7 @@ export default function NavBar() {
   return (
     <div className="navBar">
       <div>
-        <nav className="flex flex-col gap-2 relative justify-start w-[5rem] z-[100]  rounded-lg">
+        <nav className="flex flex-col gap-2 relative justify-start w-24 z-[100]  rounded-lg">
           {navItems.map((item) => {
             const isActive = item.path === pathname;
             return (

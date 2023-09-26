@@ -7,7 +7,7 @@ export async function POST(req: Request) {
   const res = await req.text();
 
   try {
-    const predictByPrompt = res ? JSON.parse(res) : [];
+    const predictByPrompt = res ? [JSON.parse(res)] : [];
 
     let predictData = [];
 
@@ -23,6 +23,8 @@ export async function POST(req: Request) {
       ]);
     } else predictData = predictByPrompt;
 
+    console.log(predictData);
+
     const savedModel = await getModel();
 
     const model = LogisticRegression.load(savedModel);
@@ -34,13 +36,20 @@ export async function POST(req: Request) {
     return NextResponse.json({
       score: score,
       predictedCount: finalResults.length,
+      result: finalResults,
     });
   } catch (e: any) {
     if (
       e.message ===
       "ENOENT: no such file or directory, open 'modelTitanic.json'"
     )
-      return NextResponse.json({ code: 404, message: "model no found" });
-    return NextResponse.json("Something went wrong");
+      return NextResponse.json(
+        { error: "model doesnt exist" },
+        { status: 500 }
+      );
+    return NextResponse.json(
+      { error: "Something went wrong" },
+      { status: 500 }
+    );
   }
 }
