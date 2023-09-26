@@ -49,16 +49,17 @@ export default function Home() {
   };
 
   useEffect(() => {
-    if (data)
+    if (data) {
       if (!data.finalResults) {
-        toast("not survived")
+        toast("not survived");
       }
-    setResponseData({
-      score: data.score,
-      count: data.predictedCount,
-      result: data.finalResults ? "survived" : "not survived",
-      intermsg: getEvaluation(data.score),
-    });
+      setResponseData({
+        score: data.score,
+        count: data.predictedCount,
+        result: data.finalResults ? "survived" : "not survived",
+        intermsg: getEvaluation(data.score),
+      });
+    }
   }, [data]);
 
   useEffect(() => {

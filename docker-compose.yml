@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  app:
+    image: node:latest
+    container_name: app_main
+    restart: always
+    command: sh -c "yarn install && yarn build && yarn start"
+    ports:
+      - 3000:3000
+    working_dir: /app
+    volumes:
+      - ./:/app
+
