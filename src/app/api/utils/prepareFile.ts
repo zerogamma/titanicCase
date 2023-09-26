@@ -1,6 +1,5 @@
 import { parse } from "csv-parse";
 import { promises as fs } from "fs";
-import { Stream } from "stream";
 import { finished } from "stream/promises";
 
 export const processFile = async (
@@ -88,12 +87,12 @@ function fillNull(
 }
 // Serialize the model for future use.
 export const saveModel = (JSONModel: string) => {
-  fs.writeFile("modelTitanic.json", JSONModel, "utf8");
+  fs.writeFile("pickle.json", JSONModel, "utf8");
 };
 
 // Deserialize the model.
 export const getModel = async () => {
-  const readFile = await fs.readFile("modelTitanic.json", "utf8");
+  const readFile = await fs.readFile("pickle.json", "utf8");
   return JSON.parse(readFile);
 };
 
