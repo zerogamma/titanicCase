@@ -16,6 +16,7 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+# Code Base on https://risx3.github.io/titanic-analysis/
 ## Code To train and predict a Lineal Regression Model.
 
 the code use 'ml-logistic-regression' as a library to train and predict.
